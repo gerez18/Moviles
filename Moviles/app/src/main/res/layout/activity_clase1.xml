@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSalida" />
 
     <Button
-        android:id="@+id/btnReset"
+        android:id="@+id/btnResetC3"
         android:layout_width="159dp"
         android:layout_height="67dp"
         android:text="Reset"
