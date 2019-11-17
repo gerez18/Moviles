@@ -16,7 +16,7 @@ public class ActivityClase1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clase1);
         btnContador=(Button) findViewById(R.id.btnPulsar);
-        btnResetear=(Button) findViewById(R.id.btnReset);
+        btnResetear=(Button) findViewById(R.id.btnResetC3);
         tvSalida=(TextView) findViewById(R.id.tvSalida);
         suma=0;
 
