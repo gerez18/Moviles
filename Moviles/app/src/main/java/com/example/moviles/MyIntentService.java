@@ -1,60 +1,58 @@
 package com.example.moviles;
 
 import android.app.IntentService;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions and extra parameters.
- */
+
 public class MyIntentService extends IntentService {
-    // TODO: Rename actions, choose action names that describe tasks that this
-    // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    public static final String ACTION_FOO = "com.example.moviles.action.FOO";
-    public static final String ACTION_BAZ = "com.example.moviles.action.BAZ";
+        int rand;
+        private static final String ACTION_FOO="com.example.intent.action.progress";
+        public static final String RESULT_FOO="com.example.intent.action.FIN";
+        private static String FOO_ID = "com.example.extra.FOO.id";
 
-    // TODO: Rename parameters
-    public static final String EXTRA_PARAM1 = "com.example.moviles.extra.PARAM1";
-    public static final String EXTRA_PARAM2 = "com.example.moviles.extra.PARAM2";
 
     public MyIntentService() {
         super("MyIntentService");
+
+    }
+
+    public static void startActionFoo(Context context, Integer ID,int rango){
+        System.out.println("Rango" + rango);
+        Intent intent = new Intent(context, MyIntentService.class);
+        intent.setAction(ACTION_FOO);
+        intent.putExtra(FOO_ID, ID);
+        intent.putExtra("Iteraciones",rango);
+        context.startService(intent);
+
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
+            System.out.println("Entre al intent");
             final String action = intent.getAction();
-            if (ACTION_FOO.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionFoo(param1, param2);
-            } else if (ACTION_BAZ.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionBaz(param1, param2);
-            }
+            if(ACTION_FOO.equals(action)){
+                System.out.println("Entre al action");
+                int rand = intent.getIntExtra("Iteraciones", 0);
+                System.out.println("rand: " + rand);
+
+                for (int i = 0; i < rand; i++);
+                    try {
+                        Thread.sleep(3000);
+                        Intent intencion = new Intent();
+                        intencion.setAction(RESULT_FOO);
+                        Integer rango = rand;
+                        intencion.putExtra(RESULT_FOO, rango.toString());
+                        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intencion);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+
         }
-    }
-
-    /**
-     * Handle action Foo in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionFoo(String param1, String param2) {
-        // TODO: Handle action Foo
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    /**
-     * Handle action Baz in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionBaz(String param1, String param2) {
-        // TODO: Handle action Baz
-        throw new UnsupportedOperationException("Not yet implemented");
+        }
     }
 }
