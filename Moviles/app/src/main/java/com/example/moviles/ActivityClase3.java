@@ -17,7 +17,7 @@ public class ActivityClase3 extends AppCompatActivity {
     EditText etValorStep;
     TextView tvDisplay;
     int contador=0;
-    String TAG="mainActivity";
+    String TAG="ActivityClase3";
     public int valorStep=0;
     int valorDisplay;
     @Override

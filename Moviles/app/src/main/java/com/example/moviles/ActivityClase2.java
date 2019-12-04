@@ -26,16 +26,13 @@ public class ActivityClase2 extends AppCompatActivity {
             asignacionBotton();
         Bundle bundleResult= new Bundle();
         bundleResult=getIntent().getExtras();
-       // String dato="El resultado es:" +bundleResult.getString("Valor");
-        //System.out.println("El dato es:"+dato);
         if(bundleResult!=null)
         vistaResultado.setText("El resultado es:"+bundleResult.getString("Valor"));}
         else{
             asignacionBotton();
         Bundle bundleResult= new Bundle();
         bundleResult=getIntent().getExtras();
-        // String dato="El resultado es:" +bundleResult.getString("Valor");
-        //System.out.println("El dato es:"+dato);
+
         if(bundleResult!=null)
             vistaResultado.setText("El resultado es:"+bundleResult.getString("Valor"));}
     }

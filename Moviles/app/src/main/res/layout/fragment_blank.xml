@@ -19,13 +19,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="50dp"
+                android:text="Aprete un boton"
+                android:textSize="40dp" />
+
             <Button
                 android:id="@+id/btn_clase1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clase 1"
                 android:layout_marginStart="156dp"
                 android:layout_marginTop="60dp"
+                android:text="Clase 1"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="156dp" />
 
@@ -33,9 +42,9 @@
                 android:id="@+id/btn_clase2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clase 2"
                 android:layout_marginStart="156dp"
                 android:layout_marginTop="60dp"
+                android:text="Clase 2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_clase1" />
 
@@ -59,15 +68,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_clase3" />
 
-            <Button
-                android:id="@+id/brn_clase6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="156dp"
-                android:layout_marginTop="48dp"
-                android:text="Clase 6"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_clase4" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
