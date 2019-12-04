@@ -9,7 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityClase3"></activity>
+        <service
+            android:name=".LocalService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".MyIntentService"
+            android:exported="false" />
+
+        <activity android:name=".ActivityClase4" />
+        <activity android:name=".ActivityClase3" />
         <activity android:name=".ActivityClase1" />
         <activity android:name=".ActivityClase2" />
         <activity android:name=".ActivityCargarDatos" />
